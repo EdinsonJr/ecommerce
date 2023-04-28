@@ -1,0 +1,174 @@
+:root{
+    --primer-color: hsl(354, 78%, 60%);
+    --container-color: hsl(0, 0%, 100%);
+    --texto-color-light: hsl(0, 0%, 55%);
+    --color-boton: hsl(0, 0%, 17%);
+    --card-color: hsl(0, 0%, 90%);
+    --body-color: hsl(206, 4%, 97%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+}
+.application{
+    background-color: var(--body-color);
+}
+
+ .logo{
+    display: flex;
+    align-items: center;
+}
+.logo > p{
+  color: #262626;
+  font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+}
+.nav_logo-icon{
+    width: 40px;
+    fill: var(--primer-color)
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    gap: 0.7rem;
+}
+
+/* cabecera y navegacion */
+header{
+    background-color: transparent;
+display: flex;
+align-items: center;;
+justify-content: center;
+position: fixed;
+width: 100%;
+height: 4rem;
+}
+.header--nav{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 0.3rem; 
+    width: 73%;
+}
+  /* NO ESTA FUNCIONANDO AUN */
+.navbar-scroll{
+    background-color: #000;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.25);
+}
+
+/* Estilizando el scrollbar */
+
+body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primer-color);
+    border-radius: 0.625rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--container-color);
+    border-radius: 0.625rem;
+}
+
+img{
+   width: 100%;
+   display: block;
+}
+.section1{
+  min-height: 100vh;
+  max-width: 100%;
+  min-width: 1000px;
+}
+.home{
+    display: flex;
+    padding: 0 11.5rem; 
+    width: 100%; 
+}
+.home .info{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.info p:nth-child(2){
+    color: var(--texto-color-light);
+}
+.info p:nth-child(3){
+    color: var(--primer-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.info button{
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 15px 30px;
+    place-self: baseline;
+    background-color: var(--color-boton);
+}
+.home h2{
+    font-size: 3rem;
+}
+.home--img{
+    background-color: var(--primer-color);
+    max-width: 40%;
+    padding: 0 0.5rem;
+}
+.home--img img{
+    height: 80vh;
+    object-fit:contain;
+}
+.description-img{
+    background-color: var(--card-color);
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+a{
+    text-decoration: none;
+    color:inherit
+}
+.section2{
+    margin: 0 11.5rem;
+}
+.items{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+}
+
+.description-info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    font-size: 0.8rem;
+}
+
+.description .description-img:hover img{
+    transform: translateY(-10px)
+}
+.description .description-img img{
+    transition: transform 0.5s;
+    
+ }
+.precio{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.precio p{
+    font-size: 0.8rem;
+    color: var(--texto-color-light);
+}
