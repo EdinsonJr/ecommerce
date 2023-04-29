@@ -1,4 +1,4 @@
-:root{
+:root {
     --primer-color: hsl(354, 78%, 60%);
     --container-color: hsl(0, 0%, 100%);
     --texto-color-light: hsl(0, 0%, 55%);
@@ -6,58 +6,75 @@
     --card-color: hsl(0, 0%, 90%);
     --body-color: hsl(206, 4%, 97%);
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
 }
-.application{
+
+.application {
     background-color: var(--body-color);
 }
 
- .logo{
+.logo {
     display: flex;
     align-items: center;
 }
-.logo > p{
-  color: #262626;
-  font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 600;
+
+.logo>p {
+    color: #262626;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
 }
-.nav_logo-icon{
+
+.nav_logo-icon {
     width: 40px;
     fill: var(--primer-color)
 }
 
-ul{
+ul {
     list-style: none;
     display: flex;
     gap: 0.7rem;
 }
 
+/* li:nth-child(1){   
+    color: var(--primer-color);
+} */
 /* cabecera y navegacion */
-header{
+header {
+    transition: background-color 1s;
     background-color: transparent;
-display: flex;
-align-items: center;;
-justify-content: center;
-position: fixed;
-width: 100%;
-height: 4rem;
+    display: flex;
+    align-items: center;
+    ;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    padding: 1rem 0;
+    transition: padding 1s;
 }
-.header--nav{
+
+.header--nav {
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin: 0 0.3rem; 
+    margin: 0 0.3rem;
     width: 73%;
 }
-  /* NO ESTA FUNCIONANDO AUN */
-.navbar-scroll{
-    background-color: #000;
-    box-shadow: 2px 2px 10px rgba(0,0,0,.25);
+
+/* NO ESTA FUNCIONANDO AUN */
+.navbar-scroll {
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .25);
+    padding: 2rem 0;
+    transition: background-color 1s;
+    transition: padding 1s;
+
 }
 
 /* Estilizando el scrollbar */
@@ -77,35 +94,41 @@ body::-webkit-scrollbar-track {
     border-radius: 0.625rem;
 }
 
-img{
-   width: 100%;
-   display: block;
+img {
+    width: 100%;
+    display: block;
 }
-.section1{
-  min-height: 100vh;
-  max-width: 100%;
-  min-width: 1000px;
+
+.section1 {
+    min-height: 100vh;
+    max-width: 100%;
+    min-width: 1000px;
 }
-.home{
+
+.home {
     display: flex;
-    padding: 0 11.5rem; 
-    width: 100%; 
+    padding: 0 11.5rem;
+    width: 100%;
 }
-.home .info{
+
+.home .info {
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.info p:nth-child(2){
+
+.info p:nth-child(2) {
     color: var(--texto-color-light);
 }
-.info p:nth-child(3){
+
+.info p:nth-child(3) {
     color: var(--primer-color);
     font-size: 1.5rem;
     font-weight: 700;
 }
-.info button{
+
+.info button {
     color: #fff;
     font-weight: 500;
     letter-spacing: 1px;
@@ -113,39 +136,46 @@ img{
     place-self: baseline;
     background-color: var(--color-boton);
 }
-.home h2{
+
+.home h2 {
     font-size: 3rem;
 }
-.home--img{
+
+.home--img {
     background-color: var(--primer-color);
     max-width: 40%;
     padding: 0 0.5rem;
 }
-.home--img img{
+
+.home--img img {
     height: 80vh;
-    object-fit:contain;
+    object-fit: contain;
 }
-.description-img{
+
+.description-img {
     background-color: var(--card-color);
     padding: 1rem;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
-a{
+
+a {
     text-decoration: none;
-    color:inherit
+    color: inherit
 }
-.section2{
+
+.section2 {
     margin: 0 11.5rem;
 }
-.items{
+
+.items {
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.description-info{
+.description-info {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -156,19 +186,22 @@ a{
     font-size: 0.8rem;
 }
 
-.description .description-img:hover img{
+.description .description-img:hover img {
     transform: translateY(-10px)
 }
-.description .description-img img{
+
+.description .description-img img {
     transition: transform 0.5s;
-    
- }
-.precio{
+
+}
+
+.precio {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.precio p{
+
+.precio p {
     font-size: 0.8rem;
     color: var(--texto-color-light);
 }
