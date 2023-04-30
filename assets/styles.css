@@ -4,8 +4,10 @@
     --texto-color-light: hsl(0, 0%, 55%);
     --color-boton: hsl(0, 0%, 17%);
     --card-color: hsl(0, 0%, 90%);
+    --card-color-footer:hsl(0,1%,90%);
     --body-color: hsl(206, 4%, 97%);
     --z-index-header: 1000;
+    --text-color-footer:hsl(0, 0%, 35%);
 
 }
 
@@ -232,4 +234,55 @@ a {
 .precio p {
     font-size: 0.8rem;
     color: var(--texto-color-light);
+}
+footer{
+    max-width: 100%;
+    width: 100%;
+    background-color: var(--card-color-footer);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 50vh;
+    margin-top: 6rem;
+}
+footer .informacion{
+    display: flex;
+    flex-direction: column;
+    gap:1rem
+}
+.acerca{
+    display: flex;
+    flex-direction: column;
+}
+.listas{
+    margin-top: 1rem;
+    line-height: 1.8rem;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+}
+
+.content-footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+footer .social .imgs{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+    color: var(--text-color-footer);
+}
+footer .social .imgs svg{
+    fill: var(--text-color-footer);
+}
+footer .content-footer li{
+    color: var(--text-color-footer)
+}
+li{
+    list-style: none;
 }
