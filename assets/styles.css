@@ -18,6 +18,12 @@
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
 }
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: var(--body-color);
+}
 
 
 .application {
@@ -239,11 +245,9 @@ footer{
     max-width: 100%;
     width: 100%;
     background-color: var(--card-color-footer);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 50vh;
+    min-height: 70vh;
     margin-top: 6rem;
+    padding-top: 4rem;
 }
 footer .informacion{
     display: flex;
@@ -280,9 +284,37 @@ footer .social .imgs{
 footer .social .imgs svg{
     fill: var(--text-color-footer);
 }
+footer .social .imgs svg:hover{
+    fill: #000;
+}
 footer .content-footer li{
     color: var(--text-color-footer)
 }
+footer .content-footer li:hover{
+    color: #000;
+}
 li{
     list-style: none;
+}
+
+.inf-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+}
+.inf-footer__cont{
+background-color: var(--primer-color);
+padding: 1rem;
+width: 95%;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.inf-footer__cont a{
+    list-style: none;
+    color: #000;
 }
