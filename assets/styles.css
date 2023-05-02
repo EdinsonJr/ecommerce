@@ -137,21 +137,6 @@ img {
 
 .section1 {
     min-height: 100vh;
-    max-width: 100%;
-    min-width: 1000px;
-}
-
-.home {
-    display: flex;
-    padding: 0 11.5rem;
-    width: 100%;
-}
-
-.home .info {
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 .info p:nth-child(2) {
@@ -171,6 +156,18 @@ img {
     padding: 15px 30px;
     place-self: baseline;
     background-color: var(--color-boton);
+}
+ /******************************* THE HOME *****************************************  */
+.home {
+    display: flex;
+    padding: 0 11.5rem
+}
+
+.home .info {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .home h2 {
@@ -267,6 +264,9 @@ footer .informacion{
     display: flex;
     flex-direction: column;
 }
+.icons svg{
+display: none;
+}
 
 .content-footer{
     width: 100%;
@@ -330,6 +330,7 @@ justify-content: center;
         align-items: center;
         justify-content: center;
         min-width: 400px;
+        max-width: 700px;
     }
     .items{
         display: flex;
@@ -337,8 +338,68 @@ justify-content: center;
         width: 400px;
         align-items: center;
         justify-content: center;
+        max-width: 700px;
+    }
+    nav{
+        display: none;
+        max-width: 700px;
+    }
+    .header--nav{
+        width: 100%;
+    }
+    .navegacion{
+        justify-content: flex-end;
+    }
+    .icons svg{
+        display:block;
+    }
+    .icons{
+        gap: 0.5rem;
+    }
+    .home{
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 700px;
+    }
+    .home--img {
+        background-color: var(--primer-color);
+        padding: 0 0.5rem;
+        height: 60vh;
+        display: flex;
+        max-width: 50vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 50vw;
+    }
+    .home--img img {
+        height: 70vh;
+        max-width: 700px;
+    }
+    .home .info {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        max-width: 700px;
+        margin: 1rem;
+        margin-bottom: 5rem;
+    }
+    .section1 {
+        min-height: 100vh;
+    }
+    .home h2 {
+        font-size: 2rem;
+        max-width: 70vw;
+    }
+    .home .info p:nth-child(2){
+        max-width: 90vw;
     }
 }
+
+
+
 @media (max-width:300px) {
     .items{
         width:250px;
