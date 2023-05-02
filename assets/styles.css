@@ -203,7 +203,7 @@ a {
 .section2 {
     margin: 0 11.5rem;
 }
-
+/* GRID */
 .items {
     overflow: hidden;
     display: grid;
@@ -317,4 +317,25 @@ justify-content: center;
 .inf-footer__cont a{
     list-style: none;
     color: #000;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px){
+    .section2{
+        width:100%;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 400px;
+    }
+    .items{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+    }
 }
