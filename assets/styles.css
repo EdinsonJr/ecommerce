@@ -396,6 +396,15 @@ justify-content: center;
     .home .info p:nth-child(2){
         max-width: 90vw;
     }
+    .content-footer{
+        flex-direction: column;
+        margin-left: 2rem;
+        gap: 1rem;
+        width: 90%;
+    }
+    .inf-footer__cont{
+        width: 90%;
+    }
 }
 
 
