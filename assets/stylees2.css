@@ -1,11 +1,20 @@
 .dark-mode{
+    --body-color:  hsl(249, 19%, 14%);
+    --body-color-f:hsl(249, 19%, 10%);
     --primer-color: hsl(182, 53%, 74%);
     --button-color: hsl(246, 16%, 12%);
     --button-color-alt: hsl(0, 0%, 28%);
     --card-color: hsla(246, 16%, 5%);
     --title-color: hsl(0, 0%, 95%);
     --text-color: hsl(0, 0%, 75%);
-    --body-color: hsl(249, 19%, 14%);
     --container-color: hsl(246, 16%, 12%);
     --border-color: hsl(0, 0%, 20%);
+    color:#fff;
+    --color-p-footer:#000;
+    --text-color-footer:#fff;
+    --color-header-text:#fff;
+    --p-heade-nav:#fff;
+    --fondo-navegacion:#000;
+    --fondo-navegacion-heade:#000;
+
 }
