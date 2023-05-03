@@ -16,5 +16,8 @@
     --p-heade-nav:#fff;
     --fondo-navegacion:#000;
     --fondo-navegacion-heade:#000;
+    --ruta-img: url(./img/bx-sun.svg);
+    --color-icons:#fff;
+    --color-icons-restos: #fff;
 
 }

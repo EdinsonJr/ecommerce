@@ -14,6 +14,9 @@
     --p-heade-nav: #000;
     --fondo-navegacion:#fff;
     --fondo-navegacion-heade:transparent;
+    --ruta-img: url(./img/bx-moon.svg);
+    --color-icons: transparent;
+    --color-icons-restos: #000;
 
 }
 
@@ -29,9 +32,8 @@ html{
 }
 body{
     background-color: var(--body-color);
+    transition: background-color 1s;
 }
-
-
 .application {
     background-color: var(--body-color);
 }
@@ -94,9 +96,7 @@ header {
 .header--nav p{
     color: var(--p-heade-nav);
 }
-.header--nav img{
-    width: 1rem;
-}
+
 .navegacion{
     width: 100%;
     display: flex;
@@ -107,15 +107,32 @@ header {
 .icons{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.5rem;
 }
-.icons img{
-    width: 1.3rem;
+.icons svg:nth-child(1){
+    cursor: pointer;
+    fill: var(--primer-color);
+}
+.icons svg:nth-child(2){
+    cursor: pointer;
+    fill: var(--color-icons-restos)
+}
+.icons svg{
+    width: 20px;
+}
+.luna{
+    background-image: var(--ruta-img);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color:  var(--color-icons);
+    height: 20px;
+    border-radius: 50%;
+    transition: background-image 1s;
 }
 
-.moon{
-    cursor: pointer;
-}
+
 
 .navbar-scroll {
     background-color:var(--fondo-navegacion);
@@ -278,7 +295,8 @@ footer .informacion{
     display: flex;
     flex-direction: column;
 }
-.icons svg{
+
+.icons svg:nth-child(3){
 display: none;
 }
 
@@ -367,8 +385,9 @@ justify-content: center;
     .navegacion{
         justify-content: flex-end;
     }
-    .icons svg{
+    .icons svg:nth-child(3){
         display:block;
+        fill:var(--color-icons-restos)
     }
     .icons{
         gap: 0.5rem;

@@ -29,10 +29,5 @@ window.onscroll = () => animarNav();
 
 const dark = document.querySelector("#moon-dark");
 dark.addEventListener("click", function() {
-document.body.classList.toggle("dark-mode");
-if (document.body.classList.contains("dark-mode")) {
-    dark.src ="./assets/img/bx-sun.png";
-} else {
-    dark.src ="./assets/img/bx-moon.png";
-}
+document.body.classList.toggle("dark-mode")
 });
