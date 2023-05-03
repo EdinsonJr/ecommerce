@@ -17,6 +17,8 @@
     --ruta-img: url(./img/bx-moon.svg);
     --color-icons: transparent;
     --color-icons-restos: #000;
+    --button-color: hsl(0, 0%, 17%);
+    --text-letter-button:#fff;
 
 }
 
@@ -230,6 +232,25 @@ a {
 .section2 {
     margin: 0 11.5rem;
 }
+.filtros{
+    max-width: 100%;
+}
+.filtros-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.filtros-description p:hover{
+    background-color: var(--button-color);
+    color: var(--text-letter-button);
+}
+.filtros-description p{
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+    color:#000;
+    cursor: pointer;
+}
 /* GRID */
 .items {
     overflow: hidden;
@@ -367,6 +388,7 @@ justify-content: center;
         min-width: 400px;
         max-width: 700px;
     }
+    
     .items{
         display: flex;
         flex-direction: column;
