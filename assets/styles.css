@@ -265,6 +265,7 @@ a {
     gap: 2rem;
 }
 
+
 .description-info {
     display: flex;
     flex-direction: column;
@@ -273,9 +274,10 @@ a {
     padding: 1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     position: relative;
 }
+
 .bx-plus{
     position: absolute;
     right: 1rem;
@@ -290,6 +292,7 @@ a {
     background-color: var(--container-color);
     text-align: center;
 }
+
 
 .description .description-img:hover img {
     transform: translateY(-10px);
