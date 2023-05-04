@@ -19,6 +19,8 @@
     --color-icons-restos: #000;
     --button-color: hsl(0, 0%, 17%);
     --text-letter-button:#fff;
+    --color-plus:hsl(0, 0%, 15%);
+    --sombra-general: 0 .5rem 1rem rgba(0, 0, 0, .15);
 
 }
 
@@ -235,6 +237,9 @@ a {
 .filtros{
     max-width: 100%;
 }
+.filtros:focus{
+    background-color: yellow;
+}
 .filtros-description{
     display: flex;
     align-items: center;
@@ -251,6 +256,7 @@ a {
     color:#000;
     cursor: pointer;
 }
+
 /* GRID */
 .items {
     overflow: hidden;
@@ -268,16 +274,32 @@ a {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     font-size: 0.8rem;
+    position: relative;
+}
+.bx-plus{
+    position: absolute;
+    right: 1rem;
+    top: -1rem;
+    cursor: pointer;
+    padding: 0 0.6rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: background-color .5s,color .5s;
+    color: var(--color-plus);
+    box-shadow: var(--sombra-general);
+    background-color: var(--container-color);
+    text-align: center;
 }
 
 .description .description-img:hover img {
-    transform: translateY(-10px)
+    transform: translateY(-10px);
 }
 
 .description .description-img img {
     transition: transform 0.5s;
 
 }
+
 
 .precio {
     display: flex;
@@ -444,6 +466,7 @@ justify-content: center;
         margin: 1rem;
         margin-bottom: 5rem;
     }
+    
     .section1 {
         min-height: 100vh;
     }
@@ -453,6 +476,30 @@ justify-content: center;
     }
     .home .info p:nth-child(2){
         max-width: 90vw;
+    }
+    .filtros-description{
+        gap: 0;
+        
+    }
+    .filtros-description{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        padding: 0;
+ 
+    }
+    .filtros-description p{
+        padding: 1rem 1.5rem;
+        margin-bottom: 3rem;
+        color:#000;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        text-align: center;
+        transition:color 1s;
+    }
+    .filtros-description p:hover{
+       
+        transition:  background-color 1s;
     }
     .content-footer{
         flex-direction: column;
