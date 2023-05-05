@@ -75,7 +75,16 @@ async function main() {
             duration:300
         } 
             
-    }).filter(all)
+    })
 }
 
 main();
+
+
+window.addEventListener("load", function (){
+    setTimeout(function () {
+    const loading = document.querySelector(".loading");
+    loading.classList.add("loading-none");
+    }, 1500);
+    
+})

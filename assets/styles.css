@@ -8,6 +8,7 @@
     --card-color-footer:hsl(0,1%,90%);
     --body-color: hsl(206, 4%, 97%);
     --z-index-header: 1000;
+    --z-index-loaading:5000;
     --text-color-footer:hsl(0, 0%, 35%);
     --color-p-footer:#fff;
     --color-header-text: #000;
@@ -21,6 +22,7 @@
     --text-letter-button:#fff;
     --color-plus:hsl(0, 0%, 15%);
     --sombra-general: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    --text-p-filtros:#000;
 
 }
 
@@ -37,6 +39,40 @@ html{
 body{
     background-color: var(--body-color);
     transition: background-color 1s;
+} 
+/************************ LOADING ********************************/
+.loading{
+    background-color: var(--fondo-navegacion);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: var(--z-index-loaading);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 2s  visibility 2s;
+}
+.loading svg{
+    fill: var(--primer-color);
+    width: 100px;
+    animation: scroll 1.5s infinite;;
+}
+.loading-img{
+    
+    animation: animacion-loading 2s ease-in-out infinite;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-loaading);
+}
+.loading-none{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 .application {
     background-color: var(--body-color);
@@ -255,6 +291,10 @@ a {
     margin-bottom: 3rem;
     color:#000;
     cursor: pointer;
+}
+
+.filtros-description p{
+    color: var(--text-p-filtros)
 }
 
 /* GRID */
@@ -526,3 +566,14 @@ justify-content: center;
         min-width: 150px;
     }
 }
+@keyframes animacion-loading{
+    0% {
+        transform: translateY(0);
+}
+    50% {
+        transform: translateY(calc(50% - 52%));
+    }
+    100% {
+        transform: translateY(0);
+    }
+    }
