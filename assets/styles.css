@@ -8,7 +8,8 @@
     --card-color-footer:hsl(0,1%,90%);
     --body-color: hsl(206, 4%, 97%);
     --z-index-header: 1000;
-    --z-index-loaading:5000;
+    --z-index-cart:1200;
+    --z-index-loaading:2000;
     --text-color-footer:hsl(0, 0%, 35%);
     --color-p-footer:#fff;
     --color-header-text: #000;
@@ -23,6 +24,7 @@
     --color-plus:hsl(0, 0%, 15%);
     --sombra-general: 0 .5rem 1rem rgba(0, 0, 0, .15);
     --text-p-filtros:#000;
+    --modal1-fondo: #00000090
 
 }
 
@@ -74,6 +76,77 @@ body{
     opacity: 0;
     visibility: hidden;
 }
+/******************************* PANTALLA MODAL 1 *******************************************/
+.modal1{
+    background-color: var(--modal1-fondo);
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 1200;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-modal1{
+    background-color: var(--container-color);
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.content-modal1 > p{
+    font-size: 0.8rem;
+    color: var(--texto-color-light);
+
+}
+
+.modal-visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.precio-modal1{
+    display: flex;
+    justify-content: space-between;
+}
+.precio-modal1 h3{
+font-size: 1rem;
+}
+.precio-modal1 p{
+    font-size: 0.8rem;
+    color: var(--texto-color-light);
+}
+.boton-cerrar{
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #000;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.boton-cerrar span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -5px;
+    color: #ffffff;
+}
+
+
+
 .application {
     background-color: var(--body-color);
 }
@@ -156,8 +229,22 @@ header {
 }
 .icons svg:nth-child(2){
     cursor: pointer;
-    fill: var(--color-icons-restos)
+    fill: var(--color-icons-restos);
+    position: relative;
 }
+
+.cantidad-productos{
+    position: absolute;
+    margin-top: 1rem;
+    margin-left: 0.8rem;
+    background-color: var(--color-header-text);
+    color: var(--color-p-footer);
+    border-radius: 50%;
+    padding: 0 0.3rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .icons svg{
     width: 20px;
 }
@@ -317,6 +404,10 @@ a {
     font-size: 0.7rem;
     position: relative;
 }
+.description-info > p:hover{
+    color: var(--primer-color);
+    cursor: pointer;
+}
 
 .bx-plus{
     position: absolute;
@@ -331,6 +422,9 @@ a {
     box-shadow: var(--sombra-general);
     background-color: var(--container-color);
     text-align: center;
+}
+.no-stock{
+    background-color: lightcoral;
 }
 
 
@@ -576,4 +670,69 @@ justify-content: center;
     100% {
         transform: translateY(0);
     }
+    }
+
+
+    .cart{
+        width: 50vw;
+        height: 100vh;
+        background-color: lightcoral;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        display: grid;
+        grid-template-rows: 80% 20%;
+        padding: 1rem;
+        z-index: var(--z-index-cart);
+        transition: right 0.8s;
+        margin-top: 4rem;
+        
+    }
+    .cart-show{
+        right: 0;
+    }
+    .cart-products{
+        background-color: lightblue;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .items__cart{
+        padding: 1rem;
+        background-color: lightpink;
+        text-align: center;
+    }
+    .cart-total{
+        background-color: lightgreen;
+    }
+    .item__cart-img{
+        display: flex;
+        justify-content: center;
+    }
+    .item__cart-img img{
+    display: block;
+    width: 250px;
+    }
+
+    .cart-products::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+    
+    .cart-products::-webkit-scrollbar-thumb {
+        background: var(--primer-color);
+        border-radius: 0.625rem;
+    }
+    
+    .cart-products::-webkit-scrollbar-track {
+        background: var(--container-color);
+        border-radius: 0.625rem;
+    }
+    
+    .cart_items_options{
+        display: flex;
+        gap: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
     }
