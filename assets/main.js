@@ -1,5 +1,5 @@
-const home = document.querySelector('ul > li:nth-child(1)')
-const products = document.querySelector('ul > li:nth-child(2)');
+const home = document.querySelector('#home')
+const products = document.querySelector('#produtoss');
 const hola = document.querySelector("header");
 
 function animarNav() {
@@ -61,12 +61,15 @@ function printProducts (db){
                         <img src="${image}" alt="${name}">
                     </div>
                     <div class="description-info">
-                    <div class="bx-plus" id="${id}"> + </div>
+                   ${quantity ? ` <div class="bx-plus" id="${id}"> + </div>`
+                                : `<div></div`}
                         <div class="precio">
                             <h3>${price}.00</h3>
-                            <p class="${quantity ? "" : "no-stock"}">Stock: ${quantity}</p>
+                            <p class="${quantity ? "": "no-stock"}">Stock: ${quantity ? quantity: "[agotado]"}</p>
+
                         </div>
-                            <p id="btn">${name}</p>
+                           
+                            ${quantity ? ` <p id="btn">${name}</p>` : `<p> </p>` }
                     </div>
                     </div>
         `;
@@ -186,6 +189,101 @@ function printTotal(db) {
     sumaDenumerosCarrito.textContent = cantidadProductos;
 }
 
+function logicaCartCompra(db) {
+    const btnBuy = document.querySelector('#btn-buy');
+    btnBuy.addEventListener('click', function () {
+        if(!Object.values(db.cart).length) return alert('No lleva productos en el carrito');
+        const response = confirm('seguro que quieres comprar');
+        if(!response) return;
+    
+        const actInventario = [];
+        for (const product of db.products){
+            const productCart = db.cart[product.id]
+            if(product.id === productCart?.id){
+                actInventario.push({
+                    ...product,
+                    quantity: product.quantity - productCart.cantidad,
+                    
+                });
+                const agradecimiento = confirm('Nos vimos y nos conocimos, hasta siempre!!')
+            }else{
+                actInventario.push(product);
+            }           
+    }
+    
+    db.products = actInventario;
+    db.cart = {};
+    
+    window.localStorage.setItem('products', JSON.stringify(db.products));
+    window.localStorage.setItem('cart', JSON.stringify(db.cart));
+    
+    printProducts(db);
+    printItemsCart(db);
+    printTotal(db);
+    
+    });
+}
+function mixitupo (){
+    mixitup(".items",{
+        selectors:{
+            target:'.description'
+        },
+        animation:{
+            duration:300
+        } 
+            
+    })
+}
+function modalDescription() {
+    
+    let pantallaModalDescripcion = `
+<div class="content-modal1">
+    <div class="boton-cerrar"><span>x</span></div>
+    <div class="img-modal">
+        <img src="${image}" alt="">
+    </div>
+    <h3>${name}</h3>
+    <p>${description}</p>
+    <div class="precio-modal1">
+    <h3>${price}.00</h3>
+    <p>stock: ${quantity}</p>
+    
+    </div>
+    
+</div>
+`;
+
+document.querySelector(".modal1").innerHTML = pantallaModalDescripcion;
+}
+window.addEventListener("load", function (){
+    setTimeout(function () {
+    const loading = document.querySelector(".loading");
+    loading.classList.add("loading-none");
+    }, 1500);
+    
+})
+function menuAmburguesa() {
+    const menuAmburguesa = document.querySelector(".tercer-hijo-svg");
+    const menu = document.querySelector("#menu");
+    const xMenu = document.querySelector("#x-menu");
+    menuAmburguesa.addEventListener("click",function(){
+        menu.classList.add("menu_regreso");
+    });
+    xMenu.addEventListener("click",function (){
+        menu.classList.remove("menu_regreso");
+    });
+
+}
+function desplamientoHomeYProducts() {
+    const hogar = document.querySelector("#home");
+    const productosNav = document.querySelector("#produtoss");
+    hogar.addEventListener("click",function () {
+        menu.classList.remove("menu_regreso");
+    });
+    productosNav.addEventListener("click",function () {
+        menu.classList.remove("menu_regreso");
+    });
+}
 async function main() {
     const db = {
         products: JSON.parse(localStorage.getItem('products')) ||  await peticion(),
@@ -199,73 +297,18 @@ async function main() {
     addCartFromItems(db);
     operacionesCard(db);
     printTotal(db);
-    document.querySelector("#btn-buy").addEventListener("click",function () {
-        if(!Object.values(db.cart).length) return alert("¡ Debes comprar algo para validar ! 🧐");
-        const newProducts = [];
-        for (const product of db.products) {
-            const productsCart = db.cart[product.id];
-            if(product.id === db.cart[product?.id]){
-                newProducts.push({
-                    ...product,
-                    quantity: product.quantity - productsCart.cantidad
-                })
-            }else{
-                newProducts.push(product);
-            }
-        }
-        db.products = newProducts
-        db.cart = {};
-        updateLocalStorage("products",db.products);
-        updateLocalStorage("cart",db.cart);
+    logicaCartCompra(db);
+    menuAmburguesa();
+    desplamientoHomeYProducts();
 
-        printProducts(db);
-        printItemsCart(db);
-        printTotal(db);
-    })
 }
 
 main();
 
 
-window.addEventListener("load", function (){
-    setTimeout(function () {
-    const loading = document.querySelector(".loading");
-    loading.classList.add("loading-none");
-    }, 1500);
-    
-})
 
-function modalDescription() {
-    
-        let pantallaModalDescripcion = `
-<div class="content-modal1">
-        <div class="boton-cerrar"><span>x</span></div>
-        <div class="img-modal">
-            <img src="${image}" alt="">
-        </div>
-        <h3>${name}</h3>
-        <p>${description}</p>
-        <div class="precio-modal1">
-        <h3>${price}.00</h3>
-        <p>stock: ${quantity}</p>
-        
-        </div>
-        
-    </div>
-`;
 
-document.querySelector(".modal1").innerHTML = pantallaModalDescripcion;
-}
 
-function mixitupo (){
-    mixitup(".items",{
-        selectors:{
-            target:'.description'
-        },
-        animation:{
-            duration:300
-        } 
-            
-    })
-}
+
+
 

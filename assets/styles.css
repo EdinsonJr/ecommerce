@@ -174,6 +174,9 @@ ul {
     display: flex;
     gap: 0.7rem;
 }
+.x-menu{
+    display: none;
+}
 
 .principal{
     color: var(--primer-color);
@@ -231,6 +234,9 @@ header {
     cursor: pointer;
     fill: var(--color-icons-restos);
     position: relative;
+}
+.tercer-hijo-svg{
+    display: none;
 }
 
 .cantidad-productos{
@@ -404,6 +410,8 @@ a {
     font-size: 0.7rem;
     position: relative;
 }
+
+
 .description-info > p:hover{
     color: var(--primer-color);
     cursor: pointer;
@@ -425,6 +433,10 @@ a {
 }
 .no-stock{
     background-color: lightcoral;
+    max-width: 40%;
+    padding: 0 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0 auto;
 }
 
 
@@ -556,19 +568,44 @@ justify-content: center;
         justify-content: center;
         max-width: 700px;
     }
-    nav{
-        display: none;
-        max-width: 700px;
+
+    ul{
+        min-height: 100vh;
+        position: fixed;
+        min-width: 100vw;
+        top: 0;
+        left:100%;
+        background-color: var(--container-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 1.5rem;
+        transition: left 1s;
+        cursor: pointer;
     }
+    .menu_regreso{
+        left:0%;
+        transition: left 1s;
+    }
+    .x-menu{
+        display: block;
+        position:absolute;
+        top: 50px;
+        right: 30px;
+        cursor: pointer;
+    }
+
     .header--nav{
         width: 100%;
     }
     .navegacion{
         justify-content: flex-end;
     }
-    .icons svg:nth-child(3){
-        display:block;
-        fill:var(--color-icons-restos)
+    .tercer-hijo-svg{
+        display: block;
+        fill: var(--color-icons-restos);
+        cursor: pointer;
     }
     .icons{
         gap: 0.5rem;
@@ -736,3 +773,5 @@ justify-content: center;
         cursor: pointer;
         font-size: 1.5rem;
     }
+
+   
