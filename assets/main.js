@@ -26,15 +26,19 @@ function animarNav() {
 window.onscroll = () => animarNav();
 
 
-
-
-
-const dark = document.querySelector("#moon-dark");
+function darkMode() {
+    const dark = document.querySelector("#moon-dark");
+const body = document.body;
+const isDarkMode = localStorage.getItem("isDarkMode") === "true";
+if (isDarkMode) {
+body.classList.add("dark-mode");
+}
 dark.addEventListener("click", function() {
-document.body.classList.toggle("dark-mode")
+body.classList.toggle("dark-mode");
+const isDarkMode = body.classList.contains("dark-mode");
+localStorage.setItem("isDarkMode", isDarkMode);
 });
-
-
+}
 
 function updateLocalStorage(key,value){
     localStorage.setItem(key,JSON.stringify(value));
@@ -103,9 +107,9 @@ function printItemsCart(db) {
                 <p>Stock: ${item.quantity} | ${item.price}.00</p>
                 <p>Subtotal: ${item.price * item.cantidad}.00</p>
                 <div class="cart_items_options" data-id="${item.id}">
-                <i class='bx bx-plus sumar'></i>
                 <i class='bx bx-minus restar'></i>
-                <span>${item.cantidad}</span>
+                <span>${item.cantidad} units </span>
+                <i class='bx bx-plus sumar'></i>
                 <i class='bx bx-trash eliminar'></i>
                 </div>
                 </div>
@@ -183,8 +187,9 @@ function printTotal(db) {
         precioTotal += item.cantidad * item.price
     })
     let html = `
-    <p><b>items: ${cantidadProductos}.00</b></p>
-    <p><b>precio total: ${precioTotal}.00</b></p>
+    <div class="total-item-valor">
+    <p><b> ${cantidadProductos} items</b></p>
+    <p><b>$ ${precioTotal}.00</b></p> </div>
     `
     cartTotalHTML.innerHTML = html;
     sumaDenumerosCarrito.textContent = cantidadProductos;
@@ -206,7 +211,6 @@ function logicaCartCompra(db) {
                     quantity: product.quantity - productCart.cantidad,
                     
                 });
-                const agradecimiento = confirm('vuelve pronto 🥰')
             }else{
                 actInventario.push(product);
             }           
@@ -285,6 +289,17 @@ function desplamientoHomeYProducts() {
         menu.classList.remove("menu_regreso");
     });
 }
+function cerrarCarritoConX() {
+    const carritoCerrar = document.querySelector("#x-carrito");
+        carritoCerrar.addEventListener("click",function () {
+
+    const cart = document.querySelector(".cart");
+    carritoCerrar.addEventListener("click",function(){
+        cart.classList.remove("cart-show");
+    });
+        });
+    
+}
 async function main() {
     const db = {
         products: JSON.parse(localStorage.getItem('products')) ||  await peticion(),
@@ -301,14 +316,8 @@ async function main() {
     logicaCartCompra(db);
     menuAmburguesa();
     desplamientoHomeYProducts();
-    const carritoCerrar = document.querySelector("#x-carrito");
-        carritoCerrar.addEventListener("click",function () {
-
-    const cart = document.querySelector(".cart");
-    carritoCerrar.addEventListener("click",function(){
-        cart.classList.remove("cart-show");
-    });
-        });
+    darkMode();
+    cerrarCarritoConX();
     
 }
 
