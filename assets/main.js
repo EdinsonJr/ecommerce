@@ -61,7 +61,7 @@ function printProducts (db){
                         <img src="${image}" alt="${name}">
                     </div>
                     <div class="description-info">
-                   ${quantity ? ` <div class="bx-plus" id="${id}"> + </div>`
+                   ${quantity ? ` <div class="bx-pluss" id="${id}"> + </div>`
                                 : `<div></div`}
                         <div class="precio">
                             <h3>${price}.00</h3>
@@ -100,12 +100,13 @@ function printItemsCart(db) {
 
                 <div class="cart-body">
                 <h3> ${item.name} </h3>
-                <p>${item.price}.00 | ${item.price * item.cantidad}</p>
+                <p>Stock: ${item.quantity} | ${item.price}.00</p>
+                <p>Subtotal: ${item.price * item.cantidad}.00</p>
                 <div class="cart_items_options" data-id="${item.id}">
-                <i class="restar"> - </i>
-                <i class="sumar"> + </i>
+                <i class='bx bx-plus sumar'></i>
+                <i class='bx bx-minus restar'></i>
                 <span>${item.cantidad}</span>
-                <i class="eliminar"> borrar </i>
+                <i class='bx bx-trash eliminar'></i>
                 </div>
                 </div>
 
@@ -120,7 +121,7 @@ function addCartFromItems(db) {
     const itemsHtml = document.querySelector(".items");
     itemsHtml.addEventListener("click",function (e){
 
-        if (e.target.classList.contains("bx-plus")) {
+        if (e.target.classList.contains("bx-pluss")) {
             const itemsId = parseInt(e.target.id);
             const itemsFind = db.products.find(function (product) {
                 return product.id === itemsId;
@@ -192,8 +193,8 @@ function printTotal(db) {
 function logicaCartCompra(db) {
     const btnBuy = document.querySelector('#btn-buy');
     btnBuy.addEventListener('click', function () {
-        if(!Object.values(db.cart).length) return alert('No lleva productos en el carrito');
-        const response = confirm('seguro que quieres comprar');
+        if(!Object.values(db.cart).length) return alert('Debes agregar para comprar ❓');
+        const response = confirm('Estas seguro que quieres comprar ❓');
         if(!response) return;
     
         const actInventario = [];
@@ -205,7 +206,7 @@ function logicaCartCompra(db) {
                     quantity: product.quantity - productCart.cantidad,
                     
                 });
-                const agradecimiento = confirm('Nos vimos y nos conocimos, hasta siempre!!')
+                const agradecimiento = confirm('vuelve pronto 🥰')
             }else{
                 actInventario.push(product);
             }           
@@ -300,7 +301,15 @@ async function main() {
     logicaCartCompra(db);
     menuAmburguesa();
     desplamientoHomeYProducts();
+    const carritoCerrar = document.querySelector("#x-carrito");
+        carritoCerrar.addEventListener("click",function () {
 
+    const cart = document.querySelector(".cart");
+    carritoCerrar.addEventListener("click",function(){
+        cart.classList.remove("cart-show");
+    });
+        });
+    
 }
 
 main();
