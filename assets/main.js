@@ -72,8 +72,7 @@ function printProducts (db){
                             <p class="${quantity ? "": "no-stock"}">Stock: ${quantity ? quantity: "[agotado]"}</p>
 
                         </div>
-                           
-                            ${quantity ? ` <p id="btn">${name}</p>` : `<p> </p>` }
+                          <div>  ${quantity ? ` <p>${name}</p>` : `<p> </p>` } </div>
                     </div>
                     </div>
         `;
@@ -239,27 +238,7 @@ function mixitupo (){
             
     })
 }
-function modalDescription() {
-    
-    let pantallaModalDescripcion = `
-<div class="content-modal1">
-    <div class="boton-cerrar"><span>x</span></div>
-    <div class="img-modal">
-        <img src="${image}" alt="">
-    </div>
-    <h3>${name}</h3>
-    <p>${description}</p>
-    <div class="precio-modal1">
-    <h3>${price}.00</h3>
-    <p>stock: ${quantity}</p>
-    
-    </div>
-    
-</div>
-`;
 
-document.querySelector(".modal1").innerHTML = pantallaModalDescripcion;
-}
 window.addEventListener("load", function (){
     setTimeout(function () {
     const loading = document.querySelector(".loading");
@@ -318,15 +297,7 @@ async function main() {
     desplamientoHomeYProducts();
     darkMode();
     cerrarCarritoConX();
-    
+
 }
 
 main();
-
-
-
-
-
-
-
-
